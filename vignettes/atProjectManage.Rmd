@@ -1,0 +1,36 @@
+---
+title: "atProjectManage"
+author: "Andrew Taylor"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{atProjectManage}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Consistent and Useful Comments
+
+`comment80()` prints to the console a comment of 80 width with the text string centered and split evently between lines
+
+Usage: `comment80(textString)`
+
+
+
+`commentProjectInfo()` prints a comment to the console that includes relevant project information.
+
+Usage: `commentProjectInfo(ProjectName = "", Researcher = "", Statistician = "", StartDate = "", UpdateDate = "")`
+
+
+
+## Consistent File Management
+
+`newProject()` creates a new project directory folder with 'Data', 'Documents', 'Output', 'Reports', and 'Syntax' subfolders.
+
+Usage: `newProject(Dir, FolderName)`
+
+
+
+`setwdDate()` creates a folder with the current day's date (YYYYMMDD) in a given directory, and then sets the working directory to that folder.
+
+Usage: `setwdDate(path)`

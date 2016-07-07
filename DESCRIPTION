@@ -1,0 +1,14 @@
+Package: atProjectManage
+Type: Package
+Title: Project Management Functions for Clean and Consistent Projects
+Version: 0.1.0
+Author: Andrew Taylor
+Maintainer: Andrew Taylor <taylor.andrew.r@gmail.com>
+Description: Provides useful functions for consistent and useful comments as well as project file and output organization.
+License: CC0
+LazyData: TRUE
+Imports: stringi
+RoxygenNote: 5.0.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
