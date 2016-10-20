@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# We'll wrap our Shiny Gadget in an addin.\n# Let's call it 'clockAddin()'.\nCreateNewProjectDir <- function() {\n\n  # Our ui will be a simple gadget page, which\n  # simply displays the time in a 'UI' output.\n  ui <- miniPage(\n    gadgetTitleBar(\"Insert Comment\"),\n    miniContentPanel(\n      textInput('Dir', \"Directory:\", getwd()),\n      textInput('FolderName', \"Folder Name:\", ''),\n      checkboxInput('addReportSkeleton', \"Add Report .Rmd skeleton to /Reports/ Directory?\", T),\n      checkboxInput('addPDAReportSkeleton', \"Add PDA .Rmd skeleton to /Documents/ Directory?\", T),\n      checkboxInput('recursive', \"If full directory does not exist, create it?\", T)\n    )\n  )\n\n  server <- function(input, output, session) {\n\n\nnewProject <- function(Dir,\n                       FolderName,\n                       addReportSkeleton=FALSE,\n                       addPDAReportSkeleton = FALSE,\n                       recursive = FALSE) {\n  if (substr(Dir, nchar(Dir), nchar(Dir)) != \"/\")\n    Dir <- paste0(Dir, \"/\")\n  if (dir.exists(paste0(Dir, FolderName)))\n    return(paste0(Dir, FolderName, \" already exists. Project folder was not made.\"))\n  dir.create(paste0(Dir, FolderName), recursive = recursive)\n  dir.create(paste0(Dir, FolderName, \"/Data\"))\n  dir.create(paste0(Dir, FolderName, \"/Syntax\"))\n  dir.create(paste0(Dir, FolderName, \"/Output\"))\n  dir.create(paste0(Dir, FolderName, \"/Reports\"))\n  dir.create(paste0(Dir, FolderName, \"/Documents\"))\n  if(addReportSkeleton==T) {\n    file.copy(\"./Docs/RMarkdownSkeleton.Rmd\", paste0(Dir,\n                                                        FolderName,\n                                                        \"/Reports/\",\n                                                        FolderName,\n                                                        \"_report.Rmd\"))\n  }\n  if(addPDAReportSkeleton==T) {\n    file.copy(\"./Docs/RMarkdown_PDA_Skeleton.Rmd\", paste0(Dir,\n                                                        FolderName,\n                                                        \"/Documents/\",\n                                                        FolderName,\n                                                        \"_PDA.Rmd\"))\n  }\n}\n\n\n    # Listen for 'done' events. When we're finished, we'll\n    # insert the current time, and then stop the gadget.\n    observeEvent(input$done, {\n      newProject(Dir=input$Dir,\n                 FolderName=input$FolderName,\n                 addReportSkeleton=input$addReportSkeleton,\n                 addPDAReportSkeleton=input$addPDAReportSkeleton,\n                 recursive=input$recursive)\n      stopApp()\n    })\n\n  }\n\n  # We'll use a pane viwer, and set the minimum height at\n  # 300px to ensure we get enough screen space to display the clock.\n  viewer <- paneViewer(300)\n  runGadget(ui, server, viewer = viewer)\n\n}\n\n# Try running the clock!\n# CreateNewProjectDir()\n\n",
+    "created" : 1468343661947.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1585153922",
+    "id" : "EAC5231D",
+    "lastKnownWriteTime" : 1468343052,
+    "last_content_update" : 1468343052,
+    "path" : "M:/bioteam/r_stuff/github_packages/atProjectManageAddins/R/CreateNewProjectDir.R",
+    "project_path" : null,
+    "properties" : {
+        "chunk_rendered_width" : "650"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

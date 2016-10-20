@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "Package: atProjectManage\nType: Package\nTitle: Project Management Functions for Clean and Consistent Projects\nVersion: 0.1.0\nAuthor: Andrew Taylor\nMaintainer: Andrew Taylor <taylor.andrew.r@gmail.com>\nDescription: Provides useful functions for consistent and useful comments as well as project file and output organization.\nLicense: CC0\nLazyData: TRUE\nImports: stringi\nRoxygenNote: 5.0.1\nSuggests: knitr,\n    rmarkdown\nVignetteBuilder: knitr\n",
+    "created" : 1468343602076.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4116181576",
+    "id" : "E302F8E7",
+    "lastKnownWriteTime" : 1455128185,
+    "last_content_update" : 1455128185,
+    "path" : "M:/bioteam/r_stuff/github_packages/atProjectManage/DESCRIPTION",
+    "project_path" : "DESCRIPTION",
+    "properties" : {
+        "chunk_rendered_width" : "650"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "dcf"
+}

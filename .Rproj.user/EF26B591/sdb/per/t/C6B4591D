@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' newProject\n#'\n#' newProject creates a new project directory folder with 'Data', 'Documents', 'Output', 'Reports', and 'Syntax' subfolders.\n#'\n#' @param Dir Path pointing to where the new project directory should be added\n#' @param FolderName Name of the new directory folder\n#' @param addReportSkeleton If TRUE, an RMarkdown skeleton is added to /Reports. Note: This functionality will only work for Andrew Taylor, as the report skeleton is in my directory. If people want to use this, the report skeletons can be moved to the common M:/bioteam/ directory.\n#' @param addPDAReportSkeleton If TRUE< an RMarkdown skeleton is added to /Documents, for use for planned data analyses.\n#' @param recursive If TRUE, if the final folder in `Dir` does not yet exist, it will be created\n#'\n#' @return NULL\n#' @export\n#'\n#' @examples\n#' #newProject(\"C:/User/Me/\", \"NewProject\")\nnewProject <- function(Dir, FolderName, addReportSkeleton=F, addPDAReportSkeleton = F, recursive = FALSE) {\n  if (substr(Dir, nchar(Dir), nchar(Dir)) != \"/\")\n    Dir <- paste0(Dir, \"/\")\n  if (dir.exists(paste0(Dir, FolderName)))\n    return(paste0(Dir, FolderName, \" already exists. Project folder was not made.\"))\n  dir.create(paste0(Dir, FolderName), recursive = recursive)\n  dir.create(paste0(Dir, FolderName, \"/Data\"))\n  dir.create(paste0(Dir, FolderName, \"/Syntax\"))\n  dir.create(paste0(Dir, FolderName, \"/Output\"))\n  dir.create(paste0(Dir, FolderName, \"/Reports\"))\n  dir.create(paste0(Dir, FolderName, \"/Documents\"))\n  if(addReportSkeleton==T) {\n    file.copy(\"./Docs/RMarkdownSkeleton.Rmd\", paste0(Dir,\n                                                        FolderName,\n                                                        \"/Reports/\",\n                                                        FolderName,\n                                                        \"_syntax.Rmd\"))\n  }\n  if(addPDAReportSkeleton==T) {\n    file.copy(\"./Docs/RMarkdown_PDA_Skeleton.Rmd\", paste0(Dir,\n                                                        FolderName,\n                                                        \"/Documents/\",\n                                                        FolderName,\n                                                        \"_PDA.Rmd\"))\n  }\n}\n",
+    "created" : 1468343631570.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3814839080",
+    "id" : "C6B4591D",
+    "lastKnownWriteTime" : 1468343715,
+    "last_content_update" : -2147483648,
+    "path" : "M:/bioteam/r_stuff/github_packages/atProjectManage/R/newProject.R",
+    "project_path" : "R/newProject.R",
+    "properties" : {
+        "chunk_rendered_width" : "650"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
